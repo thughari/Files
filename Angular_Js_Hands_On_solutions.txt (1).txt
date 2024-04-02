@@ -1,0 +1,212 @@
+// Hello with Angular JS
+
+var app = angular.module('myApp', []);
+
+app.controller('myCtrl', function($scope)
+ {
+
+    $scope.fullName = "Harry Potter"
+
+});
+
+//Hello First name Last Name
+
+<--- index.js--->
+var app = angular.module('myApp', []);
+
+app.controller('myCtrl', function($scope)
+ {
+
+   $scope.first_name="first name";
+
+   $scope.last_name="last name";
+
+});
+
+
+<--- index.html--->
+Hello <span type="text">{{first_name}}{{last_name}}</span> !
+
+
+//Hello <Name>
+
+<--- index.js--->
+var app = angular.module('myApp', []);
+
+app.controller('myCtrl', function($scope)
+ {
+
+    $scope.fullName="fullName";
+
+});
+
+<----index.html--->
+Hello <span type="text">
+    {{fullName}}
+    </span> !
+
+
+//ODD or EVEN
+
+$scope.number1 = 0;
+    $scope.number2 = 0;
+    $scope.odd_even = function(result){
+
+        if(result % 2 == 0 ){return "even";}
+ 
+       else{return "odd";}
+    
+   }
+
+//Sort and search
+
+$scope.options = ['Low Price to High','High Price to Low'];
+
+ $scope.selectPriceFilter = function(priceFilter){
+
+    if(priceFilter == true){return options[1];
+}
+
+    else {return options[0];
+}
+
+ }
+
+//Form Validation
+
+$scope.registerUser = function(){
+
+        alert("Product to add cart successful");
+
+        return "successful";
+
+    }
+
+//Perform Add to Cart
+
+ $scope.addToCart = function(products)
+{
+
+        alert("Product to add Cart successfully");
+
+        return "success";
+
+    };
+
+//Display ALL Products
+
+$scope.quantity=0;
+    $scope.products = [
+		{
+			name : "Happy Cycle",
+			discount:"20%",
+			price: "2500",
+			brand : "Wheels",
+			addedToCart:false,
+			image : imgPath + "cycle.jpg",
+			quantity:0
+		},
+		{
+			name : "Kids Shoes",
+			discount:"10%",
+			price: "1460",
+			brand : "Feel Good",
+			addedToCart:false,
+			image : imgPath + "shoes.jpg",
+			quantity:0
+		},
+		{
+			name : "Polo Baby Care Dress",
+			discount:"20%",
+			price: "2500",
+			brand : "Super Hero",
+			addedToCart:false,
+			image : imgPath + "shirt.jpg",
+			quantity:0
+		},
+	];
+    $scope.addToCart = function(products){
+        alert("Product to add Cart successfully");
+        return "success";
+    };
+
+// Getting user details using $http
+
+$scope.users="";
+
+
+
+$http.get("https://jsonplaceholder.typicode.com/users")
+.then(function(response)
+
+{
+
+        
+$scope.users = response.data;
+
+    
+});
+
+// Display Product Images
+
+ var imgPath = "img/";
+
+     $scope.products =
+
+     [
+ 
+        {
+
+             name:"Happy Cycle",
+
+             discount:"20%",
+
+             price:"2500",
+
+             brand : "Wheels",
+
+             addedToCart:false,
+
+             image : imgPath + "cycle.jpg",
+
+             quantity:0
+
+         },
+
+         {
+
+             name : "Kids Shoes",
+
+             discount:"10%",
+
+             price: "1460",
+
+             brand : "Feel Good",
+
+             addedToCart:false,
+
+             image : imgPath + "shoes.jpg",
+
+             quantity:0
+
+             
+         },
+
+         {
+
+             name : "Polo Baby Care Dress",
+
+             discount:"20%",price: "2500",
+
+             brand : "Super Hero",
+
+             addedToCart:false,
+
+             image : imgPath + "shirt.jpg",
+
+             quantity:0
+
+             
+         }
+
+         ]
